@@ -1,8 +1,12 @@
 {
   "name": "FriendFinder",
   "version": "1.0.0",
-  "description": "RCB-HW13",
+  "description": "friend finder hw",
   "main": "server.js",
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.8.0"
+  },
   "dependencies": {
     "express": "^4.16.3"
   },
@@ -13,13 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seakim/FriendFinder.git"
+    "url": "git+https://github.com/kb2232/FriendFinder.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/seakim/FriendFinder/issues"
-  },
-  "homepage": "https://github.com/seakim/FriendFinder#readme"
+  "homepage": "https://github.com/kb2232/FriendFinder#readme"
 }

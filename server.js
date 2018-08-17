@@ -1,26 +1,29 @@
 // Dependencies
 // =============================================================
-var express = require("express");
-var bodyParser = require("body-parser");
-var htmlRoutes = require('./app/routing/htmlRoutes.js')
-var apiRoutes = require('./app/routing/apiRoutes.js')
+const express = require("express"),
+ bodyParser = require("body-parser"),
+ htmlRoutes = require('./app/routing/htmlRoutes.js'),
+ apiRoutes = require('./app/routing/apiRoutes.js');
 
-// Sets up the Express App
-// =============================================================
-var app = express();
-var PORT = process.env.PORT || 5000;
+const app = express();
 
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+//important middleware
 
-// Routes
-// =============================================================
+//body parser middleware
+app.use(bodyParser.urlencoded({extended: true}));
+//public folder middleware
+app.use(express.static(__dirname + "/public"));
+//setting the view to ejs
+app.set("view engine", "ejs");
+
+
+
+//allows us to use routes
 htmlRoutes(app);
 apiRoutes(app);
 
-// Starts the server to begin listening
-// =============================================================
-app.listen(PORT, function () {
-	console.log("App listening on PORT " + PORT);
+//create a dynamic port for deployement 
+var PORT = process.env.PORT || 5555;
+app.listen(PORT,()=>{
+  console.log(`Server listen at door:${PORT}`);
 });
